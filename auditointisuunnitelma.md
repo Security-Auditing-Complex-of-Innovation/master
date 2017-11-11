@@ -1,111 +1,112 @@
-# Arviointisuunnitelma #
-## Tietoj‰rjestelm‰ X ##
+# Audit plan #
+## Information system X ##
 
 -----
 
-## Versiohistoria ##
+## Change log ##
 
 -----
 
-## Sis‰ltˆ ##
+## Contents ##
 
 -----
 
-# 1 Johdanto #
+# 1 Introduction #
 
-Yleiskuvaus arvioinnin kohteena olevasta tietoj‰rjestelm‰st‰ tai tietoliikennej‰rjestelyst‰
+General overview of the system being audited and the related connectivity arrangements.
 
-Roolit (omistaja, k‰ytt‰j‰t, toimittajat jos ulkoistettu palvelu)
+Roles (owner, users, suppliers - if outsourced)
 
-# 2 Arvioinnin tavoite #
+# 2 Audit target #
 
-Arviointi/hyv‰ksynt‰: Arviointi
+Evaluation/Certification: Evaluation
 
-Arviointikriteeristˆ: PCI-DSS
+Audit criteria: PCI-DSS
 
-Suojaustaso: N/A 
+Protection level: N/A 
 
-Arvioinnin arvioitu kesto, jos soveltuu: N/A
+Timeframe of the audit: N/A
 
-# 3 Soveltamisala #
+# 3 Applicability #
 
-Tarkistettavat organisaation yksikˆt ja prosessit: LDILin maksukorttitietojen k‰sittelyyn k‰ytt‰m‰t j‰rjestelm‰t sek‰ niihin l‰heisesti liittyv‰t j‰rjestelm‰t.
+Parts of organization and processes that are being audited: Systems used by LDIL for managing payment card transactions and other closely related interfaces.
 
-Rajaukset
+Scopings:
 
-N‰ytteenottosuunnitelma (jos soveltuu)
+Sampling plan (if applicable)
 
-# 4 Arviointiryhm‰ #
+# 4 Auditors #
 
-P‰‰arvioija:
+Head auditor(s):
 
-Muut arvioijat:
+Supplementary auditors:
 
-(P‰‰arvioijan vastuut, jos soveltuu)
+(P√§√§arvioijan vastuut, jos soveltuu)
 
-# 5 Arviointitoiminnot ja aikataulu #
+# 5 Audit activities and schedule #
 
-## 5.1 Aikataulu ja alustava tyˆm‰‰r‰arvio #
+## 5.1 Schedule and premilinary work estimate #
 
-Alustavan yhdess‰ XXX kanssa sovitun aikataulun mukaan...
+Alustavan yhdess√§ XXX kanssa sovitun aikataulun mukaan...
 
-Tyˆm‰‰r‰arvio tarkastuksesta:
+Premilinary work estimate:
 
- * Aineistoon tutustuminen, suunnittelu sek‰ tekniset tarkastukset. Arvio:
- * Hallinta- ja valvontaj‰rjestelm‰n tarkastus ja liikenteen nauhoitus. Arvio:
- * Yll‰pito-organisaation tietoturvallisuuden hallintaj‰rjestelm‰ ja yll‰pitomenettely. Arvio:
- * Varautumisen vaatimusten todentaminen. Arvio:
- * Raportointi. Arvio:
- * Yhteens‰: 
+ * Reviewing the material, planning and technical implementation:
+ * Review of administration and monitoring systems:
+ * Review of the ISMS including administration procedures and practices:
+ * Review of business continuity:
+ * Review of reporting procedures:
+ * Reporting:
+ * Total:
 
-(Mahdollista taulukkoa eri osa-alueista, esim. salausratkaisut, tekninen arviointi, passiivinen rajapinta-analyysi...: Henkilˆt/Asiakkaan edustaja, vastuullinen arvioija, Arviointi/tarkastus pvm.)
+(Mahdollista taulukkoa eri osa-alueista, esim. salausratkaisut, tekninen arviointi, passiivinen rajapinta-analyysi...: Henkil√∂t/Asiakkaan edustaja, vastuullinen arvioija, Arviointi/tarkastus pvm.)
 
-## 5.2 Hallinnollinen arviointi ##
+## 5.2 Administrative review ##
 
-Todennusmenetelm‰t:
- 1. Turvallisuusdokumentaatioon tutustuminen
- 2. Haastattelut
+Verification methods:
+ 1. Review of provided documentation concerning information security
+ 2. Interviews
 
-## 5.3 Tekninen arviointi ##
+## 5.3 Technical review ##
 
-Todennusmenetelm‰t:
- 1. Passiivinen rajapinta-analyysi: ker‰t‰‰n verkkokauppaj‰rjestelm‰st‰ liikennett‰ tcpdumpilla tiedostoon analysoitavaksi.
- 2. J‰rjestelm‰konfiguraatiot: tarkastellaan oleellisia konfiguraatioita automaattisesti sek‰ manuaalisesti.
- 3. Aktiivinen rajapinta-analyysi: porttiskannaus ulkoa ja sis‰verkosta k‰sin
+Verification methods:
+ 1. Passive, network analysis: ker√§t√§√§n verkkokauppaj√§rjestelm√§st√§ liikennett√§ tcpdumpilla tiedostoon analysoitavaksi.
+ 2. J√§rjestelm√§konfiguraatiot: tarkastellaan oleellisia konfiguraatioita automaattisesti sek√§ manuaalisesti.
+ 3. Aktiivinen rajapinta-analyysi: porttiskannaus ulkoa ja sis√§verkosta k√§sin
  4. Sovellusturvallisuus: skannataan nessuksella / openvassilla
  5. Salausratkaisut: site-to-site vpn-tunnelin salausasetusten tarkistus
- 6. K‰ytett‰vyystestaukset: N/A
- 7. Yhdysk‰yt‰v‰ratkaisut: N/A
- 8. Poikkeamanhavainnointikyky: Tarkistetaan ett‰ logia ker‰t‰‰n
+ 6. K√§ytett√§vyystestaukset: N/A
+ 7. Yhdysk√§yt√§v√§ratkaisut: N/A
+ 8. Poikkeamanhavainnointikyky: Tarkistetaan ett√§ logia ker√§t√§√§n
  9. Fyysinen turvallisuus: N/A
- 10. Hajas‰teilysuojaukset: N/A
+ 10. Hajas√§teilysuojaukset: N/A
  11. Varautuminen: N/A
 
 Osa-alueet
  1. Tietoliikenne
-    	- palomuurien s‰‰nnˆstˆt
-	- vpn-yhdysk‰yt‰vien asetukset
-	(Yksityiskohtainen selitys siit‰, mit‰ tehd‰‰n, esim. konfiguraatioihin tutustuminen. Lis‰ksi tarkastettavat verkkolaitteet listattuna. Tarkastuksessa todennettavat osa-alueet, kuten esimerkiksi laitteiden k‰yttˆˆnotto ja poisto, verkkojen luokittelu ja erottelu, suodatus, salaus, poikkeamien valvonta ja havainnointi, varmenteet.
+    	- palomuurien s√§√§nn√∂st√∂t
+	- vpn-yhdysk√§yt√§vien asetukset
+	(Yksityiskohtainen selitys siit√§, mit√§ tehd√§√§n, esim. konfiguraatioihin tutustuminen. Lis√§ksi tarkastettavat verkkolaitteet listattuna. Tarkastuksessa todennettavat osa-alueet, kuten esimerkiksi laitteiden k√§ytt√∂√∂notto ja poisto, verkkojen luokittelu ja erottelu, suodatus, salaus, poikkeamien valvonta ja havainnointi, varmenteet.
  2. Palvelimet
 	- magento -palvelin
-    (Yksityiskohtainen selitys siit‰ mit‰ tehd‰‰n, esim. asetusten tarkastelu, skannaukset, testailut. Tarkastuksessa todennettavat osa-alueet: laiterekisteri, palvelinten k‰yttˆˆnotto ja poisto (ml. asennusohjeet ja kovennukset, sovellukset), P‰ivitys- ja muutoshallinta, luokittelu, p‰‰synvalvonta, haittaohjelmien suodatus, varmistukset, poikkeamahavainnointi, varmenteet, toipuminen)
- 3. Levyj‰rjestelm‰t
+    (Yksityiskohtainen selitys siit√§ mit√§ tehd√§√§n, esim. asetusten tarkastelu, skannaukset, testailut. Tarkastuksessa todennettavat osa-alueet: laiterekisteri, palvelinten k√§ytt√∂√∂notto ja poisto (ml. asennusohjeet ja kovennukset, sovellukset), P√§ivitys- ja muutoshallinta, luokittelu, p√§√§synvalvonta, haittaohjelmien suodatus, varmistukset, poikkeamahavainnointi, varmenteet, toipuminen)
+ 3. Levyj√§rjestelm√§t
  4. Hallintayhteydet
 	- hallintayhteyksien turvallisuuden tarkastelu
 5. Lokiratkaisut
-	- tarkistetaan logien muodostuminen ja s‰ilytys
+	- tarkistetaan logien muodostuminen ja s√§ilytys
  6. Poikkeamienhallinta ja -havainnointi
-	- tarkistetaan logien muodostuminen ja s‰ilytys
+	- tarkistetaan logien muodostuminen ja s√§ilytys
  7. Varmistukset
- 8. Tunnistamismenetelm‰t
+ 8. Tunnistamismenetelm√§t
 	- tarkistetaan verkkokaupan autentikointi 
- 9. Laitteiden ja j‰rjestelmien toimitus- ja tuotantoketju
+ 9. Laitteiden ja j√§rjestelmien toimitus- ja tuotantoketju
 
-# 6 Raportointi #
+# 6 Reporting #
 
-Pˆyt‰kirjat
+Meeting minutes
 
-Loppuraportti
+Report
 
 
-JAKELU
+DISTRIBUTION
