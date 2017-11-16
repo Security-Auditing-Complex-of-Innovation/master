@@ -51,11 +51,11 @@ Determining the scale of cardholder data environment is done by reviewing LDIL's
 
 LDIL cardholder data environment (according to LDIL documentation fig. 1, page 8):
 
--Magento server (E-commerce platform, payment system component)
--All other hosts in DMZ network segment (located at the same segment as Magento)
--POS Cyclos (payment system component)
--All other hosts in Store brach network segment (located at the same segment as POS)
--Paloalto and PFsense firewalls (essential network infrastructure)
+* Magento server (E-commerce platform, payment system component)
+* All other hosts in DMZ network segment (located at the same segment as Magento)
+* POS Cyclos (payment system component)
+* All other hosts in Store brach network segment (located at the same segment as POS)
+* Paloalto and PFsense firewalls (essential network infrastructure)
 
 Magento and Cyclos should be studied at application level to have greater knowledge about their functionality. If applications
 use for example external database server it has impact on the scope of cardholder data environment.
