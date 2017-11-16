@@ -39,6 +39,27 @@ Scopings:
 
 Sampling plan (if applicable)
 
+PCI DSS requirements apply to organizations or entities that store, process or transmit cardholder data or sensitive authentication data. LDIL is an E-commerce company that administers their own E-commerce platform and point of sale systems at their branch store, thus making LDIL's payment system applicable to PCI DSS requirements. 
+
+Storage of sensitive authentication data is forbidden by PCI DSS. On top of PCI DSS requirements, payment card brands can have their own instructions whether storage is permitted prior to authorization. Individual payment card brands requirements are left out the scope of this audit and focus is kept on PCI DSS requirements.
+
+3.1 Scoping
+
+Purpose of scoping is to determine which components of LDIL's business environment are part of cardholder data environment. Cardholder data environment comprises of LDIL's payment system components and all other connected systems.
+
+Determining the scale of cardholder data environment is done by reviewing LDIL's provided documentation of the current business environment and security measures. Once the cardholder data environment and cardholder data flow in the payment system is identified and documented, the determined PCI DSS scope is reviewed by the LDIL before beginning the assesment (at least in real life case). 
+
+LDIL cardholder data environment (according to LDIL documentation fig. 1, page 8):
+
+-Magento server (E-commerce platform, payment system component)
+-All other hosts in DMZ network segment (located at the same segment as Magento)
+-POS Cyclos (payment system component)
+-All other hosts in Store brach network segment (located at the same segment as POS)
+-Paloalto and PFsense firewalls (essential network infrastructure)
+
+Magento and Cyclos should be studied at application level to have greater knowledge about their functionality. If applications
+use for example external database server it has impact on the scope of cardholder data environment.
+
 # 4 Auditors #
 
 Head auditor(s):
