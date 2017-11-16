@@ -17,6 +17,10 @@ General overview of the system being audited and the related connectivity arrang
 
 Roles (owner, users, suppliers - if outsourced)
 
+Target of this evaluation is LDIL's systems related to customer and payment information. Ldil is a national e-tailing company and it also has one physical store with POS-system.
+
+Scope of the evaluation includes systems directly related to customerdata. These systems are web-store, extranet, accounting system, logging system and physical store POS-system.
+
 # 2 Audit target #
 
 Evaluation/Certification: Evaluation
