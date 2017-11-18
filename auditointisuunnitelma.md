@@ -86,46 +86,128 @@ Premilinary work estimate:
 
 (Mahdollista taulukkoa eri osa-alueista, esim. salausratkaisut, tekninen arviointi, passiivinen rajapinta-analyysi...: Henkilöt/Asiakkaan edustaja, vastuullinen arvioija, Arviointi/tarkastus pvm.)
 
-## 5.2 Administrative review ##
+## 5.2 Administrative and technical reviews of named technologies
 
-Verification methods:
- 1. Review of provided documentation concerning information security
- 2. Interviews
+### 5.2.1 Network and systems security
 
-## 5.3 Technical review ##
+ 1. Technical review
+    * Review of firewall rules and configurations against the documentation
+    * Verification of documented zoning using scans and traffic capture
+    
+ 2. Administrative review
+    * Change management of router and firewall rule and configuration changes
+    * Secure and documented settings, including e.g. ports and protocols
+    * Network diagrams
+    * Administrative roles
+    * Regular configuration review
 
-Verification methods:
- 1. Passive, network analysis: kerätään verkkokauppajärjestelmästä liikennettä tcpdumpilla tiedostoon analysoitavaksi.
- 2. Järjestelmäkonfiguraatiot: tarkastellaan oleellisia konfiguraatioita automaattisesti sekä manuaalisesti.
- 3. Aktiivinen rajapinta-analyysi: porttiskannaus ulkoa ja sisäverkosta käsin
- 4. Sovellusturvallisuus: skannataan nessuksella / openvassilla
- 5. Salausratkaisut: site-to-site vpn-tunnelin salausasetusten tarkistus
- 6. Käytettävyystestaukset: N/A
- 7. Yhdyskäytäväratkaisut: N/A
- 8. Poikkeamanhavainnointikyky: Tarkistetaan että logia kerätään
- 9. Fyysinen turvallisuus: N/A
- 10. Hajasäteilysuojaukset: N/A
- 11. Varautuminen: N/A
+### 5.2.2 Configuration defaults
 
-Osa-alueet
- 1. Tietoliikenne
-    	- palomuurien säännöstöt
-	- vpn-yhdyskäytävien asetukset
-	(Yksityiskohtainen selitys siitä, mitä tehdään, esim. konfiguraatioihin tutustuminen. Lisäksi tarkastettavat verkkolaitteet listattuna. Tarkastuksessa todennettavat osa-alueet, kuten esimerkiksi laitteiden käyttöönotto ja poisto, verkkojen luokittelu ja erottelu, suodatus, salaus, poikkeamien valvonta ja havainnointi, varmenteet.
- 2. Palvelimet
-	- magento -palvelin
-    (Yksityiskohtainen selitys siitä mitä tehdään, esim. asetusten tarkastelu, skannaukset, testailut. Tarkastuksessa todennettavat osa-alueet: laiterekisteri, palvelinten käyttöönotto ja poisto (ml. asennusohjeet ja kovennukset, sovellukset), Päivitys- ja muutoshallinta, luokittelu, pääsynvalvonta, haittaohjelmien suodatus, varmistukset, poikkeamahavainnointi, varmenteet, toipuminen)
- 3. Levyjärjestelmät
- 4. Hallintayhteydet
-	- hallintayhteyksien turvallisuuden tarkastelu
-5. Lokiratkaisut
-	- tarkistetaan logien muodostuminen ja säilytys
- 6. Poikkeamienhallinta ja -havainnointi
-	- tarkistetaan logien muodostuminen ja säilytys
- 7. Varmistukset
- 8. Tunnistamismenetelmät
-	- tarkistetaan verkkokaupan autentikointi 
- 9. Laitteiden ja järjestelmien toimitus- ja tuotantoketju
+ 1. Technical review
+    * Verification that default passwords and other configuration parameters have been changed
+    * Hardening of systems
+    * Separation of server roles
+    * Disabling unnecessary protocols, services etc.
+    * Secure administration channels
+
+ 2. Administrative review
+    * Configuration management
+
+### 5.2.3 Data protection
+
+ 1. Technical review
+    * Verify that no undocumented cardholder data persists in the systems
+    * Verify the documented data is masked
+    * Verify the security of encryption and encryption keys
+
+ 2. Administrative review
+    * Documentation of stored cardholder data
+
+### 5.2.4 Security of data transmissions
+
+ 1. Technical review
+    * By reviewing configuration and traffic verify that required data is transferred properly encrypted
+
+ 2. Administrative review
+    * Encryption strength
+    * Encryption policies
+
+### 5.2.5 Malware protection
+
+ 1. Technical review
+    * Antivirus programs are installed in necessary systems
+    * Antivirus programs are regularly updated
+    * Antivirus programs successfully detect test malware
+
+ 2. Administrative review
+    * Awareness of current virus and malware threath
+
+### 5.2.6 Secure systems and applications
+
+ 1. Technical review
+    * Software updates are regularly applied
+    * Software is scanned for vulnerabilities
+    * Outer edge of network is scanned for vulnerabilities and undocumented services
+
+ 2. Administrative review
+    * Update procedures for software
+    * Identification of required updates
+    * Regular software scans
+    * Change control
+
+### 5.2.7 Access restrictions to data
+
+ 1. Technical review
+    * Review that unnecessary access to cardholder data is prevented
+
+ 2. Administrative review
+    * Needed access rights are documented
+
+### 5.2.8 Access restrictions to systems
+
+ 1. Technical review
+    * Verify user identification from configurations
+    * Verify limitations of user access
+    * Verify documented logging, connection and password policies
+
+ 2. Administrative review
+    * User ID policy
+    * Password policy
+    * Training of personnel for secure settings
+
+### 5.2.9 Monitoring and testing
+
+ 1. Technical review
+    * Verification of generated audit logs
+    * Separation of duties
+    * Log preservation
+
+ 2. Administrative review
+    * Audit log policy
+    * Documented separation of duties
+
+### 5.2.10 Testing security systems and processes
+
+ 1. Technical review
+    * Audit IDS/IPS and HIDS exists and is correctly configured
+
+ 2. Administrative review
+    * Policy for regular testing, scanning and penetration testing
+    * Existing scan reports
+
+### 5.2.11 Information security policy
+
+ 1. Technical review
+
+ 2. Administrative review
+    * Security policy
+    * Risk assessment policy
+    * Usage policies
+    * Inventories and ownerships
+    * Information security management
+    * Training of personnel
+    * Personnel screening
+    * Incident response plan
 
 # 6 Reporting #
 
