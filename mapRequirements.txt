@@ -7,11 +7,12 @@ Requirement type:
 Requirement type:
 
 
-Requirement class: Protect cardholder data
-3.  Requirement: Protect stored cardholder data
+Requirement class: Protect cardholder data	
+3.	Requirement: Protect stored cardholder data
 Requirement type:
-4. Requirement: Encrypt transmission of cardholder data across open, public networks
+4.	Requirement: Encrypt transmission of cardholder data across open, public networks
 Requirement type:
+
 
 
 Requirement class:  Maintain a vulnerability management program
