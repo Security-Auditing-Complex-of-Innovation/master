@@ -2,11 +2,11 @@ Mapping PCIDSS requirements to administrative and technical reviews
 
 Requirement class: Build and maintain a secure network and systems
 1.  Requirement: Install and maintain a firewall configuration to protect cardholder data:
-Requirement type:
-Tasks example:
+Requirement type: Technical task(s)
+Tasks example: Establish or implement network diagram that shows all the dataflows of cardholder data
 2. Requirement: Do not use vendor-supplied defaults for system passwords and other security parameters
-Requirement type:
-Tasks example:
+Requirement type: Technical task(s)
+Tasks example: Enable only needed protocols, whitelisting
 
 
 Requirement class: Protect cardholder data	
@@ -14,8 +14,8 @@ Requirement class: Protect cardholder data
 Requirement type:
 Tasks example:
 4. Requirement: Encrypt transmission of cardholder data across open, public networks
-Requirement type:
-Tasks example:
+Requirement type: Technical task(s)
+Tasks example: Ensure wireless networks transmitting cardholder data or connected to the cardholder data environment, use industry best practices to implement strong encryption for authentication and transmission.
 
 
 Requirement class:  Maintain a vulnerability management program
