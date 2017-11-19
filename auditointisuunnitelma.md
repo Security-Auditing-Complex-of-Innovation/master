@@ -91,11 +91,11 @@ Premilinary work estimate:
 ### 5.2.1 Network and systems security
 
  1. Technical review
-    * Review of firewall rules and configurations against the documentation
-    * Verification of documented zoning using scans and traffic capture
+    * Review of firewall rules and configurations against the documentation using manual portscanning utilizing nmap and manual review of firewall policy configuration
+    * Verification of documented zoning using scans and traffic capture collected using tcpdump
     
  2. Administrative review
-    * Change management of router and firewall rule and configuration changes
+    * Review of the change management process concerning router and firewall configuration changes
     * Secure and documented settings, including e.g. ports and protocols
     * Network diagrams
     * Administrative roles
@@ -104,11 +104,11 @@ Premilinary work estimate:
 ### 5.2.2 Configuration defaults
 
  1. Technical review
-    * Verification that default passwords and other configuration parameters have been changed
-    * Hardening of systems
-    * Separation of server roles
-    * Disabling unnecessary protocols, services etc.
-    * Secure administration channels
+    * Manual verification from configuration files that default passwords and other configuration parameters have been changed
+    * Hardening of systems reviewed using Nessus agent and manual configuration checks
+    * Separation of server roles reviewed manually by checking sudo and rbac configuration
+    * Confirm that unnecessary protocols, services etc. have been disabled using manual checks, nmap and nessus
+    * Review that secure administration channels are being utilized, done using tcpdump
 
  2. Administrative review
     * Configuration management
@@ -116,9 +116,9 @@ Premilinary work estimate:
 ### 5.2.3 Data protection
 
  1. Technical review
-    * Verify that no undocumented cardholder data persists in the systems
-    * Verify the documented data is masked
-    * Verify the security of encryption and encryption keys
+    * Manual verication that no undocumented cardholder data persists in the systems
+    * Manually verify that the documented data is masked
+    * Manally veruty that the security of encryption and encryption keys are sufficient
 
  2. Administrative review
     * Documentation of stored cardholder data
@@ -126,7 +126,7 @@ Premilinary work estimate:
 ### 5.2.4 Security of data transmissions
 
  1. Technical review
-    * By reviewing configuration and traffic verify that required data is transferred properly encrypted
+    * By manually reviewing configuration and by capturing traffic using tcpdump to verify that required data is transferred properly encrypted
 
  2. Administrative review
     * Encryption strength
@@ -135,9 +135,9 @@ Premilinary work estimate:
 ### 5.2.5 Malware protection
 
  1. Technical review
-    * Antivirus programs are installed in necessary systems
-    * Antivirus programs are regularly updated
-    * Antivirus programs successfully detect test malware
+    * Confirm that antivirus programs are installed in necessary systems
+    * Verify that antivirus programs are regularly updated
+    * Manually test that antivirus software can detect test malware
 
  2. Administrative review
     * Awareness of current virus and malware threath
@@ -145,9 +145,9 @@ Premilinary work estimate:
 ### 5.2.6 Secure systems and applications
 
  1. Technical review
-    * Software updates are regularly applied
-    * Software is scanned for vulnerabilities
-    * Outer edge of network is scanned for vulnerabilities and undocumented services
+    * Confirm from logs that software updates are regularly applied
+    * Confirm from nessus logs that software is scanned for vulnerabilities
+    * Confirm from nessus logs that outer edge of network is scanned for vulnerabilities and undocumented services
 
  2. Administrative review
     * Update procedures for software
@@ -158,16 +158,16 @@ Premilinary work estimate:
 ### 5.2.7 Access restrictions to data
 
  1. Technical review
-    * Review that unnecessary access to cardholder data is prevented
+    * Manually review from system configuration that unnecessary access to cardholder data is prevented
 
  2. Administrative review
-    * Needed access rights are documented
+    * Documentation of access rights
 
 ### 5.2.8 Access restrictions to systems
 
  1. Technical review
     * Verify user identification from configurations
-    * Verify limitations of user access
+    * Verify limitations of user access from sudo or rbac configuration
     * Verify documented logging, connection and password policies
 
  2. Administrative review
@@ -179,8 +179,8 @@ Premilinary work estimate:
 
  1. Technical review
     * Verification of generated audit logs
-    * Separation of duties
-    * Log preservation
+    * Confirm that separation of duties is applied to log systems
+    * Verify log retention
 
  2. Administrative review
     * Audit log policy
@@ -189,7 +189,7 @@ Premilinary work estimate:
 ### 5.2.10 Testing security systems and processes
 
  1. Technical review
-    * Audit IDS/IPS and HIDS exists and is correctly configured
+    * Manually confirm that IDS/IPS and HIDS exists and is correctly configured and that they raise alarm during network testing
 
  2. Administrative review
     * Policy for regular testing, scanning and penetration testing
