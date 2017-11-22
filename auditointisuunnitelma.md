@@ -222,3 +222,6 @@ Premilinary work estimate:
     * Audit author produces incident report from the possible findings and reports critical findings immediatelly when noticed.
 
  3. Distribution
+    * Regulatory/Legislative authority when applicable
+    * Acquirer
+    * Requester or service provider when applicable
