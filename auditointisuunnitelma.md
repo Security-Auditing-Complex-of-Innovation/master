@@ -225,3 +225,7 @@ Premilinary work estimate:
     * Regulatory/Legislative authority when applicable
     * Acquirer
     * Requester or service provider when applicable
+    
+ 4. Classification
+    * Report is classified as secret, confidental or company confidental depending on audit target
+    * 
