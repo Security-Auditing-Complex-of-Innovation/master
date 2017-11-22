@@ -211,11 +211,14 @@ Premilinary work estimate:
 
 # 6 Reporting #
 
- 1. Meeting minutes
+ 1. Schedule
+    * Planning of the compliance audit
+    * Execution of the compliance audit
+    * Incident reporting on-going while audit is on-going on critical findings
+    * Compliance audit wrapup and documentation delivered
 
  2. Reporting
     * Use the PCI-DSS Reporting on compliance template (available at https://www.pcisecuritystandards.org/documents/PCI-DSS-v3_2-ROC-Reporting-Template.pdf)
     * Audit author produces incident report from the possible findings and reports critical findings immediatelly when noticed.
 
-
-DISTRIBUTION
+ 3. Distribution
