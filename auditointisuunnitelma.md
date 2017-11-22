@@ -211,9 +211,11 @@ Premilinary work estimate:
 
 # 6 Reporting #
 
-Meeting minutes
+ 1. Meeting minutes
 
-Report
+ 2. Reporting
+    * Use the PCI-DSS Reporting on compliance template (available at https://www.pcisecuritystandards.org/documents/PCI-DSS-v3_2-ROC-Reporting-Template.pdf)
+    * Audit author produces incident report from the possible findings and reports critical findings immediatelly when noticed.
 
 
 DISTRIBUTION
