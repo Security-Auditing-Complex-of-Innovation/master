@@ -1,0 +1,11 @@
+Näillä ohjeilla pääsee käsiksi mgmt-ws winkkari koneelta b-ryhmän kali koneelle ja sieltä saa auki firefoxin, josta saa auki nessus web-sivun.
+
+Ekalla kerralla lataa xming softa b-ryhmän kali koneelta 
+1. Ota winscp yhteys osoitteeseen 79.99.193.251 ja lataa Xming-6-9-0-31-setup.exe
+2. Asenna tuo xming koneellesi
+
+Seuraavilla kerroilla ota puttyllä ssh yhteys
+1. Enabloi puttyssä kyseiselle yhteydelle x11 forward (google auttaa tarvittaessa)
+2. Avaa ssh 79.99.193.251 osoitteeseen
+3. käynnistä haluamasi softa esim. firefox
+4. tee temppuja teräviä ;)
