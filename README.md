@@ -1,7 +1,6 @@
-# master
 # Security-Auditing-Complex-of-Innovation
 
-# RGCE:ssä pääsy Group B:n Nessus & Kali koneelle
+## RGCE:ssä pääsy Group B:n Nessus & Kali koneelle
 ### Nessus:
 Avaa labran työasemalta yhteys https://79.99.193.234:8834
 user: groupa
