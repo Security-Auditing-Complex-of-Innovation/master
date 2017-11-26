@@ -1,6 +1,5 @@
 # Audit plan #
 ## Information system X ##
-Miespoliisi 2.0
 -----
 
 ## Change log ##
@@ -13,19 +12,27 @@ Miespoliisi 2.0
 
 # 1 Introduction #
 
-General overview of the system being audited and the related connectivity arrangements.
-
-Roles (owner, users, suppliers - if outsourced)
+General overview of the organization being audited and the related connectivity arrangements.
 
 Ldil is a national e-tailing company and it also has one physical store with POS-system. Ldil business environment consists of information systems and different network domains. Target of this evaluation is LDIL's systems and networks related to customer and payment information.
 
 
-
 # 2 Audit target #
+
+As descriped in previous chapter, Ldil operates on multiple fields in the eyes of the PCI DSS. Through basic shop business functions the role is defined as merchant, while company's business model also includes payment service provider role. There are only small differences in these roles regarding the audit, but these two roles define different regional laws that should be noted:
+
+- Payment Service Law (2010/290)
+- Payment Institution Law (2010/297)
+
+PCI DSS comprises a minimum set of requirements, which can be enhanced by regional laws and regulations. In this audit the criteria is defined only throuhg PCI Data Security Standard, while dependences relating to regional laws are left as a note.
+
+#2.1 
 
 Evaluation/Certification: Evaluation
 
 Audit criteria: PCI-DSS
+
+Roles (owner, users, suppliers - if outsourced)
 
 Protection level: N/A 
 
