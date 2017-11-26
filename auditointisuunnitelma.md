@@ -17,9 +17,9 @@ General overview of the system being audited and the related connectivity arrang
 
 Roles (owner, users, suppliers - if outsourced)
 
-Target of this evaluation is LDIL's systems related to customer and payment information. Ldil is a national e-tailing company and it also has one physical store with POS-system.
+Ldil is a national e-tailing company and it also has one physical store with POS-system. Ldil business environment consists of information systems and different network domains. Target of this evaluation is LDIL's systems and networks related to customer and payment information.
 
-Scope of the evaluation includes systems directly related to customerdata. These systems are web-store, extranet, accounting system, logging system and physical store POS-system.
+
 
 # 2 Audit target #
 
@@ -62,11 +62,11 @@ use for example external database server it has impact on the scope of cardholde
 
 # 4 Auditors #
 
-Head auditor(s):
+Head auditor(s): Jouni, Petri.
 
-Supplementary auditors:
+Supplementary auditors: Pauli, Jani, Otso, Vesa, Pinja, Teemu and Janne.
 
-(Pääarvioijan vastuut, jos soveltuu)
+Head auditors are responsible for the execution of the evaluation and possible focus changes during the evaluation.
 
 # 5 Audit activities and schedule #
 
