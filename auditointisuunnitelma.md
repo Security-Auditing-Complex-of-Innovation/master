@@ -83,13 +83,13 @@ Alustavan yhdessä XXX kanssa sovitun aikataulun mukaan...
 
 Premilinary work estimate:
 
- * Reviewing the material, planning and technical implementation:
- * Review of administration and monitoring systems:
- * Review of the ISMS including administration procedures and practices:
- * Review of business continuity:
- * Review of reporting procedures:
- * Reporting:
- * Total:
+ * Reviewing the material, planning and technical implementation: 32 h 
+ * Review of administration and monitoring systems: 16 h 
+ * Review of the ISMS including administration procedures and practices: 24 h 
+ * Review of business continuity: 16 h 
+ * Review of reporting procedures: 16 h 
+ * Reporting: 16 h 
+ * Total: 120 
 
 (Mahdollista taulukkoa eri osa-alueista, esim. salausratkaisut, tekninen arviointi, passiivinen rajapinta-analyysi...: Henkilöt/Asiakkaan edustaja, vastuullinen arvioija, Arviointi/tarkastus pvm.)
 
