@@ -3,8 +3,8 @@
 ## RGCE:ssä pääsy Group B:n Nessus & Kali koneelle
 ### Nessus:
 Avaa labran työasemalta yhteys https://79.99.193.234:8834
-user: groupa
-pwd:  agroup
+user: root
+pwd:  toor
 
 ### Kali:
 Ssh:lla 79.99.193.251
