@@ -26,7 +26,7 @@ As descriped in previous chapter, Ldil operates on multiple fields in the eyes o
 
 PCI DSS comprises a minimum set of requirements, which can be enhanced by regional laws and regulations. In this audit the criteria is defined only throuhg PCI Data Security Standard, while dependences relating to regional laws are left as a note.
 
-#2.1 
+# 2.1 
 
 Evaluation/Certification: Evaluation
 
