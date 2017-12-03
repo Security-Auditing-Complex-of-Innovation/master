@@ -13,6 +13,13 @@ pwd:  agroup
 
 
 # Project log
+### 3.12.2017 Su klo. 18:00
+Aloitetaan 2 ja 4 harjoitukset, pyritään saamaan skannaukset ensi viikonloppuun mennessä ekat skannit ajettua.
+ - Pinja & Vesa: tarkastavat/skannaavat DMZ:n (+ muut julkiset IP:t) julkiverkosta, sekä oikolukevat arviointisuunnitelman
+ - Pauli, Otso, Janne & Jani: Internal & Branch -verkkojen sisäinen skannaus
+ - Jouni, Petri & Teemu: MGMT, Warehouse & ws/staff -verkkojen sisäinen skannaus
+ 
+
 ### 26.11.17 Su klo. 18:00
  - Pauli kirjoittaa otsikon 5.1 alle arvioita käytettävästä ajasta.
  - Petri&Jouni jatketaan 1&2 otsikoiden viilausta.
