@@ -1,9 +1,5 @@
 # Audit plan #
-## Information system X ##
------
-
-## Change log ##
-
+## Audit of LDIL card payment infrastructure ##
 -----
 
 ## Contents ##
@@ -12,14 +8,12 @@
 
 # 1 Introduction #
 
-General overview of the organization being audited and the related connectivity arrangements.
-
-LDIL is a national e-tailing company and it also has one physical store with a POS-system. LDIL business environment consists of information systems and different network domains. Target of this evaluation is LDIL's systems and networks related to customer and payment information.
+LDIL is a national e-tailing company that also has one physical retail store with a POS-system. LDIL business environment consists of information systems and different network domains. Target of this evaluation is LDIL's systems and networks related to customer and payment information.
 
 
 # 2 Audit target #
 
-As described in the introduction, LDIL operates on multiple fields in the eyes of the PCI DSS. Through basic shop business functions the role is defined as merchant, while company's business model also includes payment service provider role. There are only small differences in these roles regarding the audit, but these two roles define different regional laws that should be noted:
+As described in the introduction, LDIL operates in multiple categories of the PCI DSS context. Due to the basic retail shop business the role of the LDIL mostly falls in the category of merchat, yet company's business model also includes components of payment service provider role. There are only small differences in these roles regarding the audit, but these two roles define different regional laws that should be noted:
 
 - Payment Service Law (2010/290)
 - Payment Institution Law (2010/297)
@@ -213,8 +207,8 @@ Premilinary work estimate:
  1. Schedule
     * Planning of the compliance audit
     * Execution of the compliance audit
-    * Incident reporting on-going while audit is on-going on critical findings
-    * Compliance audit wrapup and documentation delivered
+    * Incident reporting during the audit concerning critical findings
+    * Compliance audit wrapup and documentation delivery
 
  2. Reporting
     * Use the PCI DSS Reporting on compliance template (available at https://www.pcisecuritystandards.org/documents/PCI DSS-v3_2-ROC-Reporting-Template.pdf)
