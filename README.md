@@ -13,6 +13,13 @@ pwd:  agroup
 
 
 # Project log
+### 10.12.2017 Su klo. 18:00
+ - Jatketaan pienryhmissä skannausten tulosten jalostamista 
+ - Petri alkaa kokoamaan word dokkaria arviointisuunnitelmasta
+ - Jani tekee githubiin pohjan auditointi raportista, johon aletaan työstämään raporttia
+
+Ensi sunnuntaina palaverissa tarvitaan jokaiselta ryhmältä huomioita tärkeimmistä/merkittävimmistä havainnoista executive summary & recomendations kappaleeseen tulevaksi.
+
 ### 3.12.2017 Su klo. 18:00
 Aloitetaan 2 ja 4 harjoitukset, pyritään saamaan ensi viikonloppuun mennessä ekat skannit ajettua.
  - Pinja & Vesa: tarkastavat/skannaavat DMZ:n (+ muut julkiset IP:t) julkiverkosta, sekä oikolukevat arviointisuunnitelman
