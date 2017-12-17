@@ -13,6 +13,11 @@ pwd:  agroup
 
 
 # Project log
+### 17.12.2017 Su klo. 18:00
+Jatketaan pienryhmissä tulosten tarkastelua ja Technical report -otsikon alle tehdään verkkokohtaiset aliotsikot, johon aletaan sitten kirjoittamaan tärkeimpiä huomioita. Executive summaryyn nostetaan ei teknisesti tärkeimmät huomiot.
+
+Pidetään seuraava palaveri To 21.12. klo. 20:00.
+
 ### 10.12.2017 Su klo. 18:00
  - Jatketaan pienryhmissä skannausten tulosten jalostamista 
  - Petri alkaa kokoamaan word dokkaria arviointisuunnitelmasta
