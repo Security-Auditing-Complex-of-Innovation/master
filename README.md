@@ -13,6 +13,11 @@ pwd:  agroup
 
 
 # Project log
+### 21.12.2017 To klo. 20:00
+Aletaan kasaamaan technical report otsikon alle sisältöä keskittyen otsikoiden 6.5. ja 6.6. alle.
+
+Pyritään pitämään seuraava palaveri To 28.12.2017. 
+
 ### 17.12.2017 Su klo. 18:00
 Jatketaan pienryhmissä tulosten tarkastelua ja Technical report -otsikon alle tehdään verkkokohtaiset aliotsikot, johon aletaan sitten kirjoittamaan tärkeimpiä huomioita. Executive summaryyn nostetaan ei teknisesti tärkeimmät huomiot.
 
