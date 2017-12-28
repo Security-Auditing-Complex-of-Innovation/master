@@ -13,6 +13,9 @@ pwd:  agroup
 
 
 # Project log
+### 28.12.2017 To klo. 20:00
+Vaihdettiin kuulumisia ja sovittiin seuraava palaveri la 30.12. klo. 20:00.
+
 ### 21.12.2017 To klo. 20:00
 Aletaan kasaamaan technical report otsikon alle sisältöä keskittyen otsikoiden 6.5. ja 6.6. alle.
 
