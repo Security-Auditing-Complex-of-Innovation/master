@@ -27,14 +27,16 @@ First interesting finding was 10.10.10.7. What makes this address so compelling 
 
 ### General findings
 
-As stated before we will not got over each and every one of the findings - since these would have been mitigated via software updates, and due to the fact that hardening was likeli not applied to each host to begin with- instead we'll focus on few of the key findings and the exploit method behind. Nevertheless, next is a list of few of the more severe findings followed by the key exploits of interest.
+As stated before we will not go over each and every one of the findings - since these would have been mitigated via software updates, and due to the fact that hardening was likely not applied to each host to begin with, instead we'll focus on few of the key findings and the exploit method behind. Nevertheless, next is a list of few of the more severe findings followed by the key exploits of interest.
 
 Extranet host had ssh open from everywhere from the local iptables firewall. Eg. input policy was set to ACCEPT.
-Likeli this host had no indepth ssh hardening done.
+Likely this host had no indepth ssh hardening done.
 
-Magento host had basic authentication without encryption and phpmyadmin 
+Magento host had several issues: firstly basic authentication without encryption was detected, PHPMyAdmin was visible and directory browsing enabled as reported by Nessus. No authentication details should be never sent as clear text, as this would make it possible to harvest login details with simple data sniffing. PHPMyAdmin is a web frontend to administer SQL databases. This is a very powerful tool and should be absent in production servers or heavily protected by strict access limiting and other methods. The third problem brought out here is the directory browsing. This feature make it possible to for example gain valuable information about the files and directories available in the system. A good example of this could be a backup file which would make an executable file rendered as a text file, or revealing a htaccess file to reveal the password hashes to the attacker.
 
 SMTP host had plaintext authentication supported. Possible source of leaking user accounts.
+
+It is worth mentioning that the weaknesses in configurations mentioned above on Magento, SMTP and extranet hosts represent the type where simple software update does not likely solve the problem itself. Instead, manual configuration changes are required to mitigate the errors in question.
 
 We opted to discuss the following vulnerabilities in more detail:
 
