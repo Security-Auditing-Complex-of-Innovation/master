@@ -71,7 +71,18 @@ Given that the mentioned functionality might sound solely locally exploitable vu
 
 As a proof of this in the first phases shellshock announcement it was actively exploited by DoS -practitioners, mostly to build botnets utilized in DDoS attacks.
 
+##### Weak cryptographic ciphers
 
-#### Weak ciphers
+This is a general discussion concerning the known-weak cryptographic ciphers found from LDIL.de -environment.
+
+We will also discuss few of the known vulnerabilities related to weak ciphers, namely arcfour (eg. alleged rc4), cbc and mac algorithms. 
+
+##### How these effect ldil.de?
+
+By using weak ciphers it is possible that some or all parts of the encrypted message could be made readable by offender. This is especially critical for administrative traffic, since administrative infrastructure can be seen as one step more secret than the production environment being administrated, namely ST4 environment could be administrated from ST3 administration environment.           
+
+Since it is possible to use only computationally secure algorithms it is good idea to make sure that the algorithms used are not too quick, cheap or trivial to reverse by means of brute force.
+ 
+Weak algorithms are especially critical for web shop applications that when exploited can have severe complications in terms of loss of reputation, loss of client data and loss of business.
 
 
