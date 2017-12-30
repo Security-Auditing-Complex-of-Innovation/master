@@ -40,9 +40,9 @@ We opted to discuss the following vulnerabilities in more detail:
 
 #### Shellshock
 
-####¤ General overview of shellshock and its availability within the LDIL
+#### General overview of shellshock and its availability within the LDIL
 
-shellshock, also known as bashdoor is a security vulnerability found in the bourne again shell (bash) -type of shell.
+shellshock, also known as bashdoor, is a security vulnerability found in the bourne again shell (bash) type of shell.
 Shellshock was seen first time in september 2014, yet this vulnerability appears to be present in LDIL environment, likely due to software upgrades being unavailable, since shellshock is relatively trivial to patch simply by upgrading the bash shell to newer, less vulnerable version.
 
 During our scanning shellshock vulnerability was detected in the following addresses:
@@ -53,7 +53,7 @@ During our scanning shellshock vulnerability was detected in the following addre
 10.10.10.40 helpdesk.ldil.de
 
 It should be noted that these where found during the scanning from the *inside* of the network.
-These vulnerabilities where not detected during the scanning from outside - this could be due to various factors such as:
+These vulnerabilities were not detected during the scanning from outside - this could be due to various factors such as:
 
 * The dynamic manner how the PaloAlto firewall responded to port scanning by blocking the source address during scanning
 * Possibly due to packet filtering taking place as expected
@@ -62,10 +62,10 @@ Nevertheless, shellshock opens interesting opportunities for exploitation assumi
 Next we'll discuss the general methodology behind shellshock and some means how it might be exploited within LDIL.
 Given that the fix is trivial software upgrade it was not deemed necessary to discuss the details of the remedy method.
 
-####¤ How shellshock works - what makes it interesting?
+#### How shellshock works - what makes it interesting?
 
-As previously stated, shellshock is vulnerability in the bash shell. More indepth explanation is that bash untintentionally executes directives when commands are chained to the very end of the function definitions that in turn are stored values within the system environment variables.
-What makes shellshock so nasty is that the way it exploits the bash function export -feature to a net effect of providing user access to functionality that is not supposed to be available to the user executing the bash shell.
+As previously stated, shellshock is vulnerability in the bash shell. More in-depth explanation is that bash unintentionally executes directives when commands are chained to the very end of the function definitions that in turn are stored values within the system environment variables.
+What makes shellshock so nasty is that the way it exploits the bash function export feature to a net effect of providing user access to functionality that is not supposed to be available to the user executing the bash shell.
 This happens since each instance of bash scans the environment variable list for scripts, and assembles these scripts into a statement that defines the script within the new instance and finally executes the command. Bash has no means to verify the origin or validity of these script definitions. This leads to a scenario where attacker can execute commands on the system or abuse other bugs that might exist in bash.
 Given that the mentioned functionality might sound solely locally exploitable vulnerability, unfortunately this is not the case as various pieces of remotely reachable software - such as web servers - might utilize bash to execute functions such as system(). This means that shellshock is not only locally exploitable.
 
@@ -73,20 +73,20 @@ As a proof of this in the first phases shellshock announcement it was actively e
 
 ##### Weak cryptographic ciphers
 
-This is a general discussion concerning the known weak cryptographic ciphers found from LDIL.de -environment.
+This is a general discussion concerning the known weak cryptographic ciphers found from LDIL.de environment.
 
 We will also discuss few of the known vulnerabilities related to weak ciphers, namely arcfour (eg. alleged RC4), CBC and weak MAC algorithms. 
 
 ##### How these effect ldil.de?
 
-By using weak ciphers it is possible that some or all parts of the encrypted message could be made readable by offender. This is especially critical for administrative traffic, since administrative infrastructure can be seen as one step more secret than the production environment being administrated, namely ST4 environment could be administrated from ST3 administration environment.           
+By using weak ciphers it is possible that some or all parts of the encrypted message could be made readable by offender. This is especially critical for administrative traffic, since administrative infrastructure can be seen as one step more confidential than the production environment being administrated, namely restricted environment could be administrated from secret administration environment.           
 
-Since it is in practice possible to use only computationally secure algorithms it is a good idea to make sure that the algorithms used are not too quick, cheap or trivial to reverse without immense computing power. Thus it is greatly discoureged to use bad ciphers which for example RC4 provides with its several known flaws.
+Since it is in practice possible to use only computationally secure algorithms it is a good idea to make sure that the algorithms used are not too quick, cheap or trivial to reverse without immense computing power. Thus, it is greatly discouraged to use bad ciphers which for example RC4 provides with its several known flaws.
 
 CBC (Cipher Block Chaining) used in SSH also has known vulnerabilities. By taking advantage of these vulnerabilities, an attacker might recover plaintext from the ciphertext. Thus it is strongly adviced to disable CBC from cipher sets. The last issue discussed here is the use of weak MAC algorithms. MAC (Message Authentication Code) algorithms are used to ensure integrity of the messages. Integrity issues as such don't reveal the secured data directly, but as integrity is still a basic part of security, the weaknesses should not be around on purpose. In this case for example, MD5 is used as one possible algorithm. MD5 is prone to hash collisions with very little effort, thus it is fairly trivial to falsify the message whilst keeping the MD5 sum identical.
  
-Weak algorithms are especially critical for web shop applications which when exploited can have severe complications in terms of loss of reputation, client data and business. Several weak algorithms have for example man-in-the-middle attacks, which make it possible to capture the traffic by a malicious third party. Attacks like POODLE, which was identified by Nessus, could be used to launch an attack like this.
+Weak algorithms are especially critical for web shop applications which, when exploited, can have severe complications in terms of loss of reputation, client data and business. Several weak algorithms have for example man-in-the-middle attacks, which make it possible to capture the traffic by a malicious third party. Attacks like POODLE, which was identified by Nessus, could be used to launch an attack of this sort.
 
-In general, it is very important to keep all communication data properly encrypted, by using recommended crypto settings. Usually communication happens on top of a less secure media, for example the Internet, which can not be fully controlled by the administration and data protection plays a huge part in there.
+In general, it is very important to keep all communication data properly encrypted, by using recommended crypto settings. Usually communication happens on top of a less secure media, for example the Internet, which can not be fully controlled by the administration and data protection plays a huge part in there. It should be noted that while some of the issues mentioned here could have been mitigated by updating the relevant packages - assuming those where available in RGCE to begin with - there is also need for changes in application server configuration in order for the weak ciphers to be disabled. This emphasises the importance of change management and keeping up with latest security bulletins, such as NCSA mailing list.
 
 
