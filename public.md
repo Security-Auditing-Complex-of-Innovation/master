@@ -40,6 +40,38 @@ We opted to discuss the following vulnerabilities in more detail:
 
 #### Shellshock
 
+####¤ General overview of shellshock and its availability within the LDIL
+
+shellshock, also known as bashdoor is a security vulnerability found in the bourne again shell (bash) -type of shell.
+Shellshock was seen first time in september 2014, yet this vulnerability appears to be present in LDIL environment, likely due to software upgrades being unavailable, since shellshock is relatively trivial to patch simply by upgrading the bash shell to newer, less vulnerable version.
+
+During our scanning shellshock vulnerability was detected in the following addresses:
+
+10.10.10.8 ns2.ldil.de
+10.10.10.10 extranet.ldil.de
+10.10.10.20 files.ldil.de
+10.10.10.40 helpdesk.ldil.de
+
+It should be noted that these where found during the scanning from the *inside* of the network.
+These vulnerabilities where not detected during the scanning from outside - this could be due to various factors such as:
+
+* The dynamic manner how the PaloAlto firewall responded to port scanning by blocking the source address during scanning
+* Possibly due to packet filtering taking place as expected
+
+Nevertheless, shellshock opens interesting opportunities for exploitation assuming some means to access the aforementioned hosts inside the packet filtering perimeter. 
+Next we'll discuss the general methodology behind shellshock and some means how it might be exploited within LDIL.
+Given that the fix is trivial software upgrade it was not deemed necessary to discuss the details of the remedy method.
+
+####¤ How shellshock works - what makes it interesting?
+
+As previously stated, shellshock is vulnerability in the bash shell. More indepth explanation is that bash untintentionally executes directives when commands are chained to the very end of the function definitions that in turn are stored values within the system environment variables.
+What makes shellshock so nasty is that the way it exploits the bash function export -feature to a net effect of providing user access to functionality that is not supposed to be available to the user executing the bash shell.
+This happens since each instance of bash scans the environment variable list for scripts, and assembles these scripts into a statement that defines the script within the new instance and finally executes the command. Bash has no means to verify the origin or validity of these script definitions. This leads to a scenario where attacker can execute commands on the system or abuse other bugs that might exist in bash.
+Given that the mentioned functionality might sound solely locally exploitable vulnerability, unfortunately this is not the case as various pieces of remotely reachable software - such as web servers - might utilize bash to execute functions such as system(). This means that shellshock is not only locally exploitable.
+
+As a proof of this in the first phases shellshock announcement it was actively exploited by DoS -practitioners, mostly to build botnets utilized in DDoS attacks.
+
+
 #### Weak ciphers
 
 
