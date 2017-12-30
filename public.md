@@ -73,16 +73,20 @@ As a proof of this in the first phases shellshock announcement it was actively e
 
 ##### Weak cryptographic ciphers
 
-This is a general discussion concerning the known-weak cryptographic ciphers found from LDIL.de -environment.
+This is a general discussion concerning the known weak cryptographic ciphers found from LDIL.de -environment.
 
-We will also discuss few of the known vulnerabilities related to weak ciphers, namely arcfour (eg. alleged rc4), cbc and mac algorithms. 
+We will also discuss few of the known vulnerabilities related to weak ciphers, namely arcfour (eg. alleged RC4), CBC and weak MAC algorithms. 
 
 ##### How these effect ldil.de?
 
 By using weak ciphers it is possible that some or all parts of the encrypted message could be made readable by offender. This is especially critical for administrative traffic, since administrative infrastructure can be seen as one step more secret than the production environment being administrated, namely ST4 environment could be administrated from ST3 administration environment.           
 
-Since it is possible to use only computationally secure algorithms it is good idea to make sure that the algorithms used are not too quick, cheap or trivial to reverse by means of brute force.
+Since it is in practice possible to use only computationally secure algorithms it is a good idea to make sure that the algorithms used are not too quick, cheap or trivial to reverse without immense computing power. Thus it is greatly discoureged to use bad ciphers which for example RC4 provides with its several known flaws.
+
+CBC (Cipher Block Chaining) used in SSH also has known vulnerabilities. By taking advantage of these vulnerabilities, an attacker might recover plaintext from the ciphertext. Thus it is strongly adviced to disable CBC from cipher sets. The last issue discussed here is the use of weak MAC algorithms. MAC (Message Authentication Code) algorithms are used to ensure integrity of the messages. Integrity issues as such don't reveal the secured data directly, but as integrity is still a basic part of security, the weaknesses should not be around on purpose. In this case for example, MD5 is used as one possible algorithm. MD5 is prone to hash collisions with very little effort, thus it is fairly trivial to falsify the message whilst keeping the MD5 sum identical.
  
-Weak algorithms are especially critical for web shop applications that when exploited can have severe complications in terms of loss of reputation, loss of client data and loss of business.
+Weak algorithms are especially critical for web shop applications which when exploited can have severe complications in terms of loss of reputation, client data and business. Several weak algorithms have for example man-in-the-middle attacks, which make it possible to capture the traffic by a malicious third party. Attacks like POODLE, which was identified by Nessus, could be used to launch an attack like this.
+
+In general, it is very important to keep all communication data properly encrypted, by using recommended crypto settings. Usually communication happens on top of a less secure media, for example the Internet, which can not be fully controlled by the administration and data protection plays a huge part in there.
 
 
