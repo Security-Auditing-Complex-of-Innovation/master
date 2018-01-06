@@ -11,14 +11,7 @@ Hence, we selected two of the more critical and subject-wise interesting vulnera
 General consensus is that more or less all of the vulnerabilities found during our scanning of both the inside and outside address spaces of the 1:1 NAT could have been fixed by running software updates on the relevant servers.
 Now, the reason for this is that there simply was no updates available in the RGCE mirrors, hence we've decided to skip the low hanging fruits this scenario proposed and instead we attempted to come up with some less obvious findings and discuss few of the critical flaws found in more detail, that being said, in more general level concerning the given well known vulnerabilities.
 
-## Port scanning and the oddities detected (5)
-
-The first scan executed from the outside interface in general didn't show any major errors, like critical vulnerabilities, but there is a possible configuration error in form of BGP tcp/179 being reachable from our Nessus scanner. Danger in this configuration is that BGP port is a sign of possibly lacking control plane protections on the ISP router. Possible exploitation vectors include things such as sending RST packet from falsified source address and general overloading of the BGP process on the listening party. Net effect of this is that the would-be BGP peering might be prone to denial of service attacks, given that there is no peerings configured, the BGP tcp/179 should not be open to begin with. Hence, as an exception to the previously mentioned lack of recommended fixes we'd like to point out the following: Assuming that the open BGP port is for future use cases we would like to propose the following mitigation methods.
-
-1) Filter inbound packets based on TTL value - this could be done on both ends of the BGP peering
-2) Make sure that the uRPF filters are utilized on both the ISP network in general and in the customer peerings 
-
-### Issues with the port scanning (5)
+## Issues with the port scanning (5)
 
 We attempted to port scan the whole subnet using various NMAP switches. But during our testing we witnessed some strange behaviour on the ldil.de firewall. Next is a brief description of the open ports detected and the aforementioned behaviour of interest. Nevertheless, we got some results in overall, after combining the results achieved from the Nessus scan and partial results of NMAP scans. First we will depict the results achieved from the scanning executed from outside the firewall.
 
@@ -30,7 +23,11 @@ We attempted to port scan the whole subnet using various NMAP switches. But duri
 
 **Vulnerable Target**: 79.99.192.1. According to the documentation, this is the RGCE ISP.
 
-**Vulnerability Explanation**: See the aforementioned paragraph concerning the BGP configuration.
+**Vulnerability Explanation**: There is a possible configuration error in form of BGP tcp/179 being reachable from our Nessus scanner. Danger in this configuration is that BGP port is a sign of possibly lacking control plane protections on the ISP router. Possible exploitation vectors include things such as sending RST packet from falsified source address and general overloading of the BGP process on the listening party. Net effect of this is that the would-be BGP peering might be prone to denial of service attacks, given that there is no peerings configured, the BGP tcp/179 should not be open to begin with. Hence, as an exception to the previously mentioned lack of recommended fixes we'd like to point out the following: Assuming that the open BGP port is for future use cases we would like to propose the following mitigation methods.
+
+1) Filter inbound packets based on TTL value - this could be done on both ends of the BGP peering
+2) Make sure that the uRPF filters are utilized on both the ISP network in general and in the customer peerings 
+
 
 ### Service port closed for extranet service
 
@@ -119,7 +116,7 @@ As previously stated, Shellshock is vulnerability in the Bash shell. More in-dep
 
 Given that the mentioned functionality might sound solely locally exploitable vulnerability, unfortunately this is not the case as various pieces of remotely reachable software - such as web servers - might utilize Bash to execute functions such as system(). This means that Shellshock is not only locally exploitable. As a proof of this in the first phases Shellshock announcement it was actively exploited by DoS practitioners, mostly to build botnets utilized in DDoS attacks.
 
-**Business impacts of the attach vector**: This being said, ldil.de runs largely on top of web servers hosted on Linux environment when bash tends to be the default shell. This sets the ground for urgency of updating the shell since shellsock provides ground for taking out or corrupting part of the core business infrastructure, namely the web shop. This is also key element in terms of fulfilling the PCI DSS security requirements set for the platform producing the service. These are obvious fail-factors for audit.
+**Business impacts of the attack vector**: This being said, ldil.de runs largely on top of web servers hosted on Linux environment when bash tends to be the default shell. This sets the ground for urgency of updating the shell since shellsock provides ground for taking out or corrupting part of the core business infrastructure, namely the web shop. This is also key element in terms of fulfilling the PCI DSS security requirements set for the platform producing the service. These are obvious fail-factors for audit.
 
 ### Weak cryptographic ciphers
 
