@@ -13,6 +13,9 @@ pwd:  agroup
 
 
 # Project log
+### 6.1.2017 La klo. 18:00
+Viimeinen hätäkokous.
+
 ### 28.12.2017 To klo. 20:00
 Vaihdettiin kuulumisia ja sovittiin seuraava palaveri la 30.12. klo. 20:00.
 
