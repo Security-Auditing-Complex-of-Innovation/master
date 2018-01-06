@@ -112,6 +112,8 @@ As scans executed from the outside interface were greatly affected by the behavi
 
 **Vulnerable Target**: 10.10.10.8 (ns2.ldil.de), 10.10.10.10 (extranet.ldil.de), 10.10.10.20 (www.ldil.de), 10.10.10.40 (helpdesk.ldil.de)
 
+**Severity**: CRITICAL
+
 **Vulnerability Explanation**: Shellshock, also known as Bashdoor, is a security vulnerability found in the Bourne Again shell (Bash). Shellshock was seen first time in september 2014, yet this vulnerability appears to be present in LDIL environment likely due to software upgrades being unavailable, since Shellshock is relatively trivial to patch simply by upgrading the bash shell to newer, less vulnerable version.
 
 It should be noted that these where found during the scanning from the *inside* of the network.
@@ -132,7 +134,7 @@ Given that the mentioned functionality might sound solely locally exploitable vu
 
 **Synopsis**: This is a general discussion concerning the known weak cryptographic ciphers found from ldil.de environment. We will also discuss few of the known vulnerabilities related to weak ciphers, namely arcfour (eg. alleged RC4), CBC and weak MAC algorithms. These weak ciphers were found from multiple hosts in the ldil.de environment, for instance the Magento based web shop. This on its own is a significant business risk as ldil.de relies largely on the web shop infrastucture to work.
 
-**Vulnerable Target**: 10.10.10.20 (www.ldil.de), 10.10.10.10 (extranet.ldil.de) 10.10.10.0/24: all host for SSH issues.
+**Vulnerable Target**: 10.10.10.20 (www.ldil.de), 10.10.10.10 (extranet.ldil.de), 10.10.10.0/24: all host for SSH issues.
 
 **Severity**: CRITICAL
 
