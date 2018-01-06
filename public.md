@@ -21,21 +21,33 @@ We attempted to port scan the whole subnet using various NMAP switches. But duri
 ### BGP port open
 
 **Synopsis**: See the aforementioned paragraph concerning the BGP configuration.
+
 **Vulnerable Target**: 79.99.192.1. According to the documentation, this is the RGCE ISP.
+
 **Vulnerability Explanation**: See the aforementioned paragraph concerning the BGP configuration.
 
 ### Service port closed for extranet service
+
 **Synopsis**: HTTP(S) service port closed for a likely HTTP(S) server
-**Vulnerable Target**: 79.99.193.10. According to Nessus this IP address belongs to extranet.ldil.de, the Extranet service. **Vulnerability Explanation**: Although this server likely hosts HTTP(S) services, the top 1000 ports were all displayed as filtered. This was likely due to feature of the PaloAlto firewall that we'll discuss later on this report.
+
+**Vulnerable Target**: 79.99.193.10. According to Nessus this IP address belongs to extranet.ldil.de, the Extranet service.
+
+**Vulnerability Explanation**: Although this server likely hosts HTTP(S) services, the top 1000 ports were all displayed as filtered. This was likely due to feature of the PaloAlto firewall that we'll discuss later on this report.
 
 ### Service port closed
+
 **Synopsis**: HTTP(S) service port closed for a HTTP(S) server
+
 **Vulnerable Target**: 79.99.193.20 belongs to the store service.
+
 **Vulnerability Explanation**: All top 1000 service ports were filtered according to the NMAP and Nessus scans. This doesn't sound right, as the store should definitely serve publicly from ports 80 and 443. This, similarly to the previous finding, will be discussed in further detail later on.
 
 ### Remotely triggerable filtering of ports by the firewall
+
 **Synopsis**: Traffic rejection treshold prone for remote triggering
+
 **Vulnerable Target**: 79.99.193.1, PaloAlto firewall
+
 **Vulnerability Explanation**: Apparently the PaloAlto firewall starts to shun source addresses that it deems as sources of port scanning. This is all good as such but it provides interesting vector for denial of service attacks as follows. An attacker could forge the source address of the connection so that the source IP address could come from one or more of the critical interest groups. At least some form of whitelisting should take place as uRPF filters are not deployed fully in the Internet and even if the first next-hop ISP did utilize uRPF the whole of Internet does not. Whitelisting of source addresses would mitigate the DoS vector in a simple manner, except that the web store should be reachable from everywhere, hence the source address filter is not enough on its own. Whitelisting the tcp/80 and tcp/443 for web store would mitigate this to some extent. Yet, whitelisting would open the door for flooding the firewall state table for the given whitelisted ports. Hence, the recommendation would be to consider using stateless filters in ISP routers for the mandatory tcp/80 and tcp/443 and do the specific filtering in the PaloAlto firewall for other non "access from anywhere" services utilizing whitelisting.
 
 ### Scans from inside
@@ -44,8 +56,11 @@ We attempted to port scan the whole subnet using various NMAP switches. But duri
 As scans executed from the outside interface were greatly affected by the behaviour of the firewall, more information about ports and services were gathered by scanning from the private network. This, nevertheless, bypasses the security provided by the firewall. On the other hand, as defence should always be multilayered and should not trust solely a single point of protection, the results can be considered as valid from the point of view of a public network, as the scans executed from therein.
 
 ### Undocumented device with services open
+
 **Synopsis**: There are undocumented apparel in the network, with open services
+
 **Vulnerable Target**: 10.10.10.7, 79.99.193.251, 79.99.193.234
+
 **Vulnerability Explanation**: First interesting finding was 10.10.10.7. What makes this address so compelling is that there was no mention of this address in the documention e.g. excel sheet. This on its own could be a severe anomaly, especially as we failed to login via SSH using the passwords and usernames available. To increase the importance of this finding was the TFTP server running on the host. We tested this by uploading some files. This means that not only was the host not documented, but it also had write access made available via TFTP. This could be exploited in terms of denial of service by filling the disk on the receiving end, obviously depending on the TFTP configuration. Uncomented IP addresses might be an indication of problems implementing change management and other administrative procedures. Two other undocumented addresses were found, namely Kali and Nessus - obviously these where not present in the time when the documentation was written but these could still be seen as worthwhile indicators of documentation lagging behind.
 
 ### General findings
