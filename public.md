@@ -59,19 +59,39 @@ As scans executed from the outside interface were greatly affected by the behavi
 
 **Synopsis**: There are undocumented apparel in the network, with open services
 
-**Vulnerable Target**: 10.10.10.7, 79.99.193.251, 79.99.193.234
+**Vulnerable Targets**: 10.10.10.7, 79.99.193.251, 79.99.193.234
 
 **Vulnerability Explanation**: First interesting finding was 10.10.10.7. What makes this address so compelling is that there was no mention of this address in the documention e.g. excel sheet. This on its own could be a severe anomaly, especially as we failed to login via SSH using the passwords and usernames available. To increase the importance of this finding was the TFTP server running on the host. We tested this by uploading some files. This means that not only was the host not documented, but it also had write access made available via TFTP. This could be exploited in terms of denial of service by filling the disk on the receiving end, obviously depending on the TFTP configuration. Uncomented IP addresses might be an indication of problems implementing change management and other administrative procedures. Two other undocumented addresses were found, namely Kali and Nessus - obviously these where not present in the time when the documentation was written but these could still be seen as worthwhile indicators of documentation lagging behind.
 
-### General findings
+## General findings
 
 As stated before, we will not go over each and every one of the findings - since these would have been mitigated via software updates, and due to the fact that hardening was likely not applied to each host to begin with, instead we'll focus on few of the key findings and the exploit method behind. Nevertheless, next is a list of few of the more severe findings followed by the key exploits of interest.
 
-Extranet host had SSH open from everywhere from the local iptables firewall. In practice, the input policy was set to ACCEPT, which thus allows SSH connections from anywhere. Likely this host had no in-depth SSH hardening done.
+### SSH port unfiltered
 
-Magento host had several issues. To name a few: firstly basic authentication without encryption was detected, PHPMyAdmin was visible and directory browsing enabled as reported by Nessus. No authentication details should be never sent as clear text, as this would make it possible to harvest login details with simple data sniffing. PHPMyAdmin is a web frontend to administer SQL databases. This is a very powerful tool and should be absent in production servers or heavily protected by strict access limiting and other methods. The third problem brought out here is the directory browsing. This feature make it possible to for example gain valuable information about the files and directories available in the system. A good example of this could be a backup file which would make an executable file rendered as a text file providing extensive details about the system, or revealing a htaccess file to reveal the password hashes to the attacker.
+**Synopsis**: SSH port open from everywhere
 
-SMTP host had plaintext authentication supported. This is a possible source of leaking user accounts.
+**Vulnerable Target**: extranet.ldil.de
+
+**Vulnerability Explanation**: Extranet host had SSH open from everywhere from the local iptables firewall. In practice, the input policy was set to ACCEPT, which thus allows SSH connections from anywhere. Likely this host had no in-depth SSH hardening done.
+
+### Non-hardened services
+
+**Synopsis**: Services are not hardened for restricting attack surface
+
+**Vulnerable Target**: www.ldil.de
+
+**Vulnerability Explanation**: Magento host had several issues. To name a few: firstly basic authentication without encryption was detected, PHPMyAdmin was visible and directory browsing enabled as reported by Nessus. No authentication details should be never sent as clear text, as this would make it possible to harvest login details with simple data sniffing. PHPMyAdmin is a web frontend to administer SQL databases. This is a very powerful tool and should be absent in production servers or heavily protected by strict access limiting and other methods. The third problem brought out here is the directory browsing. This feature make it possible to for example gain valuable information about the files and directories available in the system. A good example of this could be a backup file which would make an executable file rendered as a text file providing extensive details about the system, or revealing a htaccess file to reveal the password hashes to the attacker.
+
+### Plaintext authentication supported
+
+**Synopsis**: Plaintext authentication for SMTP is supported
+
+**Vulnerable Target**: mail.ldil.de
+
+**Vulnerability Explanation**: SMTP host had plaintext authentication supported. This is a possible source of leaking user accounts.
+
+### Further details
 
 It is worth mentioning that the weaknesses in configurations mentioned above on Magento, SMTP and extranet hosts represent the type where simple software update does not likely solve the problem itself. Instead, manual configuration changes are required to mitigate the errors in question.
 
@@ -85,16 +105,16 @@ Shellshock, also known as Bashdoor, is a security vulnerability found in the Bou
 
 During our scanning the Shellshock vulnerability was detected in the following addresses:
 
-10.10.10.8 ns2.ldil.de
-10.10.10.10 extranet.ldil.de
-10.10.10.20 files.ldil.de
-10.10.10.40 helpdesk.ldil.de
+ * 10.10.10.8 ns2.ldil.de
+ * 10.10.10.10 extranet.ldil.de
+ * 10.10.10.20 files.ldil.de
+ * 10.10.10.40 helpdesk.ldil.de
 
 It should be noted that these where found during the scanning from the *inside* of the network.
 These vulnerabilities were not detected during the scanning from outside - this could be due to various factors such as:
 
-* The dynamic manner how the PaloAlto firewall responded to port scanning by blocking the source address during scanning
-* Possibly due to packet filtering taking place as expected
+ * The dynamic manner how the PaloAlto firewall responded to port scanning by blocking the source address during scanning
+ * Possibly due to packet filtering taking place as expected
 
 Nevertheless, Shellshock opens interesting opportunities for exploitation assuming some means to access the aforementioned hosts inside the packet filtering perimeter.
 
