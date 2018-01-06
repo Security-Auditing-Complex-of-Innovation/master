@@ -120,15 +120,17 @@ Nevertheless, Shellshock opens interesting opportunities for exploitation assumi
 
 Next we'll discuss the general methodology behind shellshock and some means how it might be exploited within LDIL. Given that the fix is trivial software upgrade it was not deemed necessary to discuss the details of the remedy method.
 
-#### How Shellshock works - what makes it interesting?
+#### How Shellshock works and why it is relevant for ldil.de?
 
 As previously stated, Shellshock is vulnerability in the Bash shell. More in-depth explanation is that Bash unintentionally executes directives when commands are chained to the very end of the function definitions that in turn are stored values within the system environment variables. What makes Shellshock so nasty is that the way it exploits the Bash function export feature to a net effect of providing user access to functionality that is not supposed to be available to the user executing the Bash shell. This happens since each instance of Bash scans the environment variable list for scripts, and assembles these scripts into a statement that defines the script within the new instance and finally executes the command. Bash has no means to verify the origin or validity of these script definitions. This leads to a scenario where attacker can execute commands on the system or abuse other bugs that might exist in Bash.
 
 Given that the mentioned functionality might sound solely locally exploitable vulnerability, unfortunately this is not the case as various pieces of remotely reachable software - such as web servers - might utilize Bash to execute functions such as system(). This means that Shellshock is not only locally exploitable. As a proof of this in the first phases Shellshock announcement it was actively exploited by DoS practitioners, mostly to build botnets utilized in DDoS attacks.
 
+This being said, ldil.de runs largely on top of web servers hosted on Linux environment when bash tends to be the default shell. This sets the ground for urgency of updating the shell since shellsock provides ground for taking out or corrupting part of the core business infrastructure, namely the web shop.
+
 ##### Weak cryptographic ciphers
 
-This is a general discussion concerning the known weak cryptographic ciphers found from LDIL.de environment. We will also discuss few of the known vulnerabilities related to weak ciphers, namely arcfour (eg. alleged RC4), CBC and weak MAC algorithms. 
+This is a general discussion concerning the known weak cryptographic ciphers found from LDIL.de environment. We will also discuss few of the known vulnerabilities related to weak ciphers, namely arcfour (eg. alleged RC4), CBC and weak MAC algorithms. These weak ciphers were found from multiple hosts in the ldil.de environment, for instance the magento based web shop. This on its own is a significant business risk as ldil.de relies largely on the web shop infrastucture to work.
 
 ##### How these effect ldil.de?
 
@@ -142,4 +144,5 @@ Weak algorithms are especially critical in web shop applications which, when exp
 
 In general, it is very important to keep all communication data properly encrypted, by using recommended crypto settings. Usually communication happens on top of a less secure media, for example the Internet, which can not be fully controlled by the administration and data protection plays a huge part in there. It should be noted that while some of the issues mentioned here could have been mitigated by updating the relevant packages - assuming those where available in RGCE to begin with - there is also need for changes in application server configuration in order for the weak ciphers to be disabled. This emphasises the importance of change management and keeping up with latest security bulletins, such as NCSA mailing list.
 
-
+These ciphers are part of the webshop environment, but their effects can be seen in other services as well, such as SSH.
+SSH, being used for maintenace tasks makes it even more critical for these vulnerabilities to get patched the soonest.
