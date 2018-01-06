@@ -21,7 +21,7 @@
 |60.254.143.2|Firewall|0|0|3|0|39|43|
 |79.99.192.1|Firewall|0|0|0|0|8|8|
 |79.99.193.10|extranet.ldil.de|0|0|0|0|4|4|
-|79.99.193.20|www.ldil.de||0|0|0|0|4|4|
+|79.99.193.20|www.ldil.de|0|0|0|0|4|4|
 
 ### By host ip address from inside
 
