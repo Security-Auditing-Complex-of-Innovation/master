@@ -53,9 +53,9 @@ We attempted to port scan the whole subnet using various NMAP switches. But duri
 
 **Vulnerability Explanation**: Apparently the PaloAlto firewall starts to shun source addresses that it deems as sources of port scanning. This is all good as such but it provides interesting vector for denial of service attacks as follows. An attacker could forge the source address of the connection so that the source IP address could come from one or more of the critical interest groups. At least some form of whitelisting should take place as uRPF filters are not deployed fully in the Internet and even if the first next-hop ISP did utilize uRPF the whole of Internet does not. Whitelisting of source addresses would mitigate the DoS vector in a simple manner, except that the web store should be reachable from everywhere, hence the source address filter is not enough on its own. Whitelisting the tcp/80 and tcp/443 for web store would mitigate this to some extent. Yet, whitelisting would open the door for flooding the firewall state table for the given whitelisted ports. Hence, the recommendation would be to consider using stateless filters in ISP routers for the mandatory tcp/80 and tcp/443 and do the specific filtering in the PaloAlto firewall for other non "access from anywhere" services utilizing whitelisting.
 
-### Vulnerability findings found from inside the perimeter firewall (7.6)
+## Vulnerability findings found from inside the perimeter firewall (7.6)
 
-## Introduction from DMZ scans from the inside interface
+### Introduction from DMZ scans from the inside interface
 As scans executed from the outside interface were greatly affected by the behaviour of the firewall, more information about ports and services were gathered by scanning from the private network. This, nevertheless, bypasses the security provided by the firewall. On the other hand, as defence should always be multilayered and should not trust solely a single point of protection, the results can be considered as valid from the point of view of a public network, as the scans executed from therein.
 
 ### Undocumented device with services open
