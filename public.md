@@ -1,5 +1,45 @@
 # DMZ
 
+## Summary of vulnerabilities found in dmz by vulnerability level (7.4)
+
+### From inside by level
+
+|Critical|High|Med|Low|Info|Total|
+|--------|----|---|---|----|-----|
+|92|458|605|51|365|1571|
+
+### From outside by level
+|Critical|High|Med|Low|Info|Total|
+|--------|----|---|---|----|-----|
+|0|0|3|0|63|66|
+
+### By host ip address from outside
+
+|Host|Service|Critical|High|Med|Low|Info|Total|
+|----|-------|--------|----|---|---|----|-----|
+|60.254.143.1|Carrier CPE|0|0|0|0|8|8|
+|60.254.143.2|Firewall|0|0|3|0|39|43|
+|79.99.192.1|Firewall|0|0|0|0|8|8|
+|79.99.193.10|extranet.ldil.de|0|0|0|0|4|4|
+|79.99.193.20|www.ldil.de||0|0|0|0|4|4|
+
+### By host ip address from inside
+
+|Host|Service|Critical|High|Med|Low|Info|Total|
+|----|-------|--------|----|---|---|----|-----|
+|10.10.10.251|kali|0|0|0|0|20|20|
+|10.10.10.7|Unknown|0|0|0|0|9|9|
+|10.10.10.8|ns2.ldil.de|16|89|101|7|38|251|
+|10.10.10.30|mail.ldil.de|0|0|11|9|54|74|
+|10.10.10.1|firewall|0|0|0|0|3|3|
+|10.10.10.234|nessus|0|0|1|0|39|40|
+|10.10.10.4|ns1.ldil.de|16|89|101|7|38|251|
+|10.10.10.20|www.ldil.de|22|95|136|12|69|334|
+|10.10.10.40|heldesk.ldil.de|19|95|124|7|35|280|
+|10.10.10.10|extranet.ldil.de|19|90|131|9|60|309|
+
+
+
 ## Audit activities (4.1)
 
 Premilinary scanning of the public address space and 1:1 NAT inside network was performed using Nessus vulnerability scanner and Nmap port scanner. Two aforementioned tools were used from both inside and outside of the perimeter firewall. First order of business was running Nmap and Nessus was used to both confirm the Nmap findings and to scan for higher level vulnerabilities. Reports produced by the automated scanners were analyzed manually to find the most relevant issues that were deemed worthy of escalation. Masses of bulk vulnerabilities that were found were intentionally left out as they could have been trivially patched assuming patches where available in RGCE. These are still reported in the attachements.
@@ -110,7 +150,7 @@ As scans executed from the outside interface were greatly affected by the behavi
 
 **Synopsis**: Shellshock, also known as Bashdoor, is a security vulnerability found in the Bourne Again shell (Bash).
 
-**Vulnerable Target**: 10.10.10.8 (ns2.ldil.de), 10.10.10.10 (extranet.ldil.de), 10.10.10.20 (www.ldil.de), 10.10.10.40 (helpdesk.ldil.de)
+**Vulnerable Target**: 10.10.10.4 (ns1.ldil.de), 10.10.10.8 (ns2.ldil.de), 10.10.10.10 (extranet.ldil.de), 10.10.10.20 (www.ldil.de), 10.10.10.40 (helpdesk.ldil.de)
 
 **Severity**: CRITICAL
 
