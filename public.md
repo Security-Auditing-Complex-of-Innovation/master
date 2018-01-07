@@ -1,3 +1,16 @@
+
+# RECOMMENDATIONS
+
+In general, the first and foremost task or activity that should take place based on the results of this audit would be to upgrade the software components of the given target systems. This is essential as it would cover majority of vulnerabilities found in systematic and logical manner. To accomplish this, software repositories need updating and possibly reconfiguration.
+
+As with any software upgrade, this task should be split and prioritized so that the most impactful systems are patched first. Yet, to do this in safe and mature manner this patching should be done in pre-production or testing environment before touching the production system. This is key in order to avoid causing mayhem on the production that could occure due to broken software packages or incompabilities introduced by version changes.
+
+Some of the found vulnerabilities are more complex and require configuration changes in addition to software upgrade. Example of this kind of vulnerability would be the weak encryption algorithms. To fix these in safe manner it would be ideal to first check that also the surrounding software stack supports the stonger, more modern, encryption methods.
+
+All in all, the key take away from this report is that the software is largely outdated and needs actions to be taken.
+
+
+
 # DMZ
 
 ## Summary of vulnerabilities found in dmz by vulnerability level (7.4)
